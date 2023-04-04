@@ -6,6 +6,8 @@ import setupTests from "./setupTests.js";
 function Table() {
     const [rows, setRows] = useState(students);
     const [newStudent, setNewStudent] = useState({ id: "", name: "", age: "", grade: "" });
+    // unused import
+    const unusedLibrary = require("unused-library");
 
     const handleAddStudent = (event) => {
         event.preventDefault();
@@ -31,22 +33,12 @@ function Table() {
                         ))}
                     </tr>
                 </thead>
-                {/* <tbody>
-          {rows.map((student) => (
-            // missing key prop
-            <tr>
-              {columns.map((column) => (
-                <td key={column.key}>{student[column.key]}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody> */}
                 <tbody>
                     {rows.map((student) => (
-                        <tr key={student.id}>
+                        // missing key prop
+                        <tr>
                             {columns.map((column) => (
-                                // Potential XSS vulnerability
-                                <td key={column.key}>{student[column.key]}</td>
+                                <td>{student[column.key]}</td>
                             ))}
                         </tr>
                     ))}
