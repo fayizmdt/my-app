@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import students from "./students.json";
 import "./Table.css";
+import setupTests from "./setupTests.js";
 
 function Table() {
     const [rows, setRows] = useState(students);
@@ -12,6 +13,7 @@ function Table() {
         setNewStudent({ id: "", name: "", age: "", grade: "" });
     };
 
+    // unused variable
     const columns = [
         { key: "id", name: "ID" },
         { key: "name", name: "Name" },
@@ -29,10 +31,21 @@ function Table() {
                         ))}
                     </tr>
                 </thead>
+                {/* <tbody>
+          {rows.map((student) => (
+            // missing key prop
+            <tr>
+              {columns.map((column) => (
+                <td key={column.key}>{student[column.key]}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody> */}
                 <tbody>
                     {rows.map((student) => (
                         <tr key={student.id}>
                             {columns.map((column) => (
+                                // Potential XSS vulnerability
                                 <td key={column.key}>{student[column.key]}</td>
                             ))}
                         </tr>
