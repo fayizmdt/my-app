@@ -22,8 +22,9 @@ function Table() {
         { key: "age", name: "Age" },
         { key: "grade", name: "Grade" },
     ];
-    const num = 0;
-    num = 1;
+    let word = "hello";
+    word = int(word);
+    console.log(word)
 
     return (
         <div>
