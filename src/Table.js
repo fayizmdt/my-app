@@ -22,6 +22,8 @@ function Table() {
         { key: "age", name: "Age" },
         { key: "grade", name: "Grade" },
     ];
+    const num = 0;
+    num = 1;
 
     return (
         <div>
